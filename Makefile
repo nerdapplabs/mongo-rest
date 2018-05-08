@@ -1,11 +1,12 @@
 install:
-      pip3 install -r requirements.txt
+	pip3 install -r requirements.txt
 
 run:
-      python3 -m server.py
+	python3 server.py
 
 lint:
-      pep8 ./
+	pep8 ./
 
 test: lint
-      pytest tests/
+	pytest tests/
+
