@@ -2,7 +2,7 @@ install:
 	pip3 install -r requirements.txt
 
 run:
-	python3 server.py
+	python3 -m server.py
 
 lint:
 	pep8 ./
