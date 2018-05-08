@@ -5,7 +5,7 @@ run:
 	python3 -m server.py
 
 lint:
-	pep8 ./
+	pycodestyle --exclude='./ENV/*.*' ./
 
 test: lint
 	pytest tests/
