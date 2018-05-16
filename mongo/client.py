@@ -1,7 +1,5 @@
 import motor
-from bson import ObjectId
 from motor.motor_asyncio import AsyncIOMotorClient
-import logging
 
 m_client = motor.motor_asyncio.AsyncIOMotorClient()
 
@@ -12,13 +10,6 @@ collection = db.m1c
 async def do_insert(doc):
     result = await collection.insert(doc)
     return result
-
-
-async def do_find_all():
-    async for document in collection.find({}):
-        print(document)
-        logging.info(document)
-    return document
 
 
 async def do_find_one(d):
@@ -32,23 +23,21 @@ async def do_count():
     return cnt
 
 
-async def do_del():
+async def do_del(d):
     n = await collection.count()
     print('%s Documents before calling del()' % n)
-    result = await collection.delete_many({})
+    result = await collection.delete_one(d)
     print('%s Documents after!' % (await collection.count()))
     return result
 
 
 async def do_update(d):
-    id = await collection.find_one(d)
-    result = await collection.update({'$set': d})
+    id = await collection.find_one()
+    print(id)
+    result = await collection.update_one({"_id": 1}, {'$set': d})
     print(result)
     return result
 
-
-async def do_replace():
-    pass
 
 
 
