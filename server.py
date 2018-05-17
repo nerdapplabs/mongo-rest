@@ -11,5 +11,7 @@ def run():
     app.router.add_get('/api/ping', api.ping)
     web.run_app(app)
 
-
+import asyncio
+import uvloop
+asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 run()
