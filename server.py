@@ -6,13 +6,11 @@ from api import handler
 
 def run():
     """ Starts the Server """
-
     app = web.Application()
-    app.router.add_get('/user', handler.handler)
-    app.router.add_post('/add/user', handler.add_user)
-    app.router.add_get('/find/user', handler.get_user)
-    app.router.add_put('/update/user', handler.update_user)
-    app.router.add_delete('/delete/user', handler.delete_user)
+    app.router.add_get('/api/user/{user_id}', handler.get_user)
+    app.router.add_post('/api/user', handler.add_user)
+    app.router.add_put('/api/user/{user_id}', handler.update_user)
+    app.router.add_delete('/api/user/{user_id}', handler.delete_user)
 
     web.run_app(app)
 
