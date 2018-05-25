@@ -1,0 +1,4 @@
+2018-05-25 17:56:12,378 - api.handler - INFO - Logging!
+2018-05-25 17:56:26,401 - root - INFO - READING THE _id...
+2018-05-25 17:56:26,406 - root - ERROR - INVALID _id 8 !
+2018-05-25 17:56:26,408 - aiohttp.access - INFO - 127.0.0.1 [25/May/2018:12:26:26 +0000] "GET /api/user/8 HTTP/1.1" 200 164 "-" "curl/7.54.0"
