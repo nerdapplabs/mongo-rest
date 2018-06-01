@@ -3,20 +3,25 @@
   "disable_existing_loggers": false,
   "formatters": {
     "simple": {
-      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+      "date_fmt": "%m-%d-%Y %H:%M:%S"
     }
   },
   "handlers": {
-    "file_handler": {
-      "class": "logging.FileHandler",
-      "level": "DEBUG",
+    "SysLog": {
+      "class": "logging.handlers.SysLogHandler",
       "formatter": "simple",
-      "filename": "logging_config.log",
-      "encoding": "utf8"
+      "address": "/var/run/syslog",
+      "level": "DEBUG",
+      "facility": "LOG_SYSLOG"
     }
   },
-  "root": {
+  "loggers": {
+    "handlers": ["SysLog"],
     "level": "DEBUG",
-    "handlers": ["file_handler"]
+    "propagate": false
   }
 }
+
+
+

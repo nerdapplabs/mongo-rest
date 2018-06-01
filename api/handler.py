@@ -4,20 +4,7 @@ from aiohttp.web import Response
 
 from mongo import client as m_client
 
-import logging.config
-
-import json
-
-from os import path, remove
-
-if path.isfile("logging_config.log"):
-    remove("logging_config.log")
-
-with open("app.json", 'r') as f:
-    config_dict = json.load(f)
-logging.config.dictConfig(config_dict)
-logger = logging.getLogger(__name__)
-logger.info("Logging!")
+import logging
 
 
 async def add_user(request):
