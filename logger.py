@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 import logging.config
 from logging.handlers import SysLogHandler
@@ -28,5 +30,4 @@ class MyLogger:
             logger.propagate = propagate
             logger.addHandler(handler)
 
-
-
+# called in server.py

@@ -1,7 +1,7 @@
+#!/usr/bin/env python3
+
 import motor
-
 from motor.motor_asyncio import AsyncIOMotorClient
-
 m_client = motor.motor_asyncio.AsyncIOMotorClient()
 
 db = m_client.m1
@@ -23,16 +23,15 @@ async def do_del(user_id):
 
 
 async def do_update(user_id, user_data):
-    await collection.update({"_id": user_id}, user_data)
+    await collection.update({"_id": user_id}, {'$set': user_data})
 
 
-"""
 async def do_find_all():
-    doc = await collection.find({})
-    print(doc)
+    doc = collection.find()
     return doc
 
 
+"""
 async def do_count():
     cnt = await collection.find().count()
     print('%s Count of documents ' % cnt)

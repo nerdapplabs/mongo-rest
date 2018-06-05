@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from aiohttp import web
-
 from api import handler
 from logger import MyLogger
 
@@ -11,6 +10,7 @@ def run():
 
     app = web.Application()
     MyLogger().setup()
+
     app.router.add_get('/api/user/{user_id}', handler.get_user)
     app.router.add_post('/api/user', handler.add_user)
     app.router.add_put('/api/user/{user_id}', handler.update_user)
